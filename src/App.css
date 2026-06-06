@@ -1,0 +1,357 @@
+/* Import Lora (soft italic serif) and Quicksand (soft rounded sans-serif) */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette Definitions */
+  --sage: #818263;
+  --avocado: #C2C395;
+  --blush: #DDBAAE;
+  --peach: #EFD7CF;
+  --oat: #DCD4C1;
+  --honey: #F6EAD4;
+  --coconut: #FFFAF2;
+
+  /* Soft Earthy Theme colors */
+  --bg-gradient: linear-gradient(135deg, var(--coconut) 0%, var(--honey) 100%);
+  --text-main: #4d4f3b;      /* Softened dark green-grey */
+  --text-muted: #7e8064;    /* Muted soft green-grey */
+  --border-color: rgba(129, 130, 99, 0.15);
+  --card-shadow: 0 4px 15px rgba(129, 130, 99, 0.05);
+}
+
+/* ==========================================================================
+   VITE LAYOUT OVERRIDES (Removes left/right white margins)
+   ========================================================================== */
+#root {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings: Softened and lighter */
+h1, h2, h3, h4 {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  color: var(--sage);
+}
+
+/* Authentication Screen Card */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.auth-card {
+  background: var(--honey);
+  border: 1.5px dashed var(--sage);
+  padding: 3rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--card-shadow);
+}
+
+.auth-card h2 {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--sage);
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--oat);
+  background: #ffffff;
+  color: var(--text-main);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(129, 130, 99, 0.1);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--blush);
+  color: var(--text-main);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #d4a799;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   TOP NAVBAR (Transparent, Plain Text links)
+   ========================================================================== */
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top-navbar {
+  background: transparent;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.navbar-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 3rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.navbar-item {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-item:hover, .navbar-item.active {
+  color: var(--sage);
+}
+
+.navbar-item.signout-link {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.navbar-item.signout-link:hover {
+  color: #d946ef;
+}
+
+/* Dashed divider below navbar (stretches across) */
+.navbar-dashed-divider {
+  width: 100%;
+  border-bottom: 2px dashed var(--sage);
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   MAIN CONTENT & HEADER BAR (Mockup Layout)
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 3rem 3rem 3rem;
+}
+
+/* Floating Welcome user banner sits on the left below the divider */
+.dashboard-welcome {
+  box-sizing: border-box;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  text-align: left;
+  margin-top: 1.5rem;   /* Spacing BELOW the dashed divider */
+  margin-bottom: 1rem;
+}
+
+/* Header bar centered below the welcome banner */
+.header-bar {
+  text-align: center;   /* Centers the title and description */
+  margin-top: 1rem;     /* Space above page title */
+  margin-bottom: 3.5rem;/* Space below page title */
+}
+
+.header-bar h1 {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.75rem;   /* Reduced font size for soft feel */
+  font-weight: 500;
+  color: var(--sage);
+  margin: 0 0 0.5rem 0;
+}
+
+.header-bar p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CARDS & GRIDS
+   ========================================================================== */
+.card {
+  background: #ffffff;
+  border: 1.5px solid var(--oat);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--sage);
+  margin-bottom: 1.5rem;
+}
+
+/* --- DASHBOARD CARDS --- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.grid-3 .card:nth-child(1) {
+  background: var(--avocado);
+  border: 1px solid rgba(129, 130, 99, 0.2);
+}
+.grid-3 .card:nth-child(1) h3 { color: var(--text-main); }
+
+.grid-3 .card:nth-child(2) {
+  background: var(--blush);
+  border: 1px solid rgba(129, 130, 99, 0.2);
+}
+.grid-3 .card:nth-child(2) h3 { color: var(--text-main); }
+
+.grid-3 .card:nth-child(3) {
+  background: var(--honey);
+  border: 1px solid var(--oat);
+}
+.grid-3 .card:nth-child(3) h3 { color: var(--text-main); }
+
+.card:has(.lucide-target) {
+  background: var(--peach);
+  border: 1.5px solid rgba(221, 186, 174, 0.5);
+}
+.card:has(.lucide-target) p { color: var(--text-main); }
+
+.card:has(.lucide-bell) {
+  background: var(--oat);
+  border: 1.5px solid rgba(110, 112, 84, 0.15);
+}
+.card:has(.lucide-bell) h3 { color: var(--text-main); }
+
+/* --- SUBJECTS PAGE --- */
+.card:has(form input[placeholder*="Algorithms"]) {
+  background: var(--peach);
+  border: 1.5px dashed var(--blush);
+}
+.card:has(button[title="Delete Course"]) {
+  background: var(--oat);
+  border: 1.5px solid var(--border-color);
+}
+
+/* --- TASKS PAGE --- */
+.card:has(form input[placeholder*="Calculus"]) {
+  background: var(--avocado);
+  border: 1.5px dashed var(--sage);
+}
+.card:has(.task-item) {
+  background: var(--honey);
+  border: 1.5px solid var(--oat);
+}
+
+/* --- SCHEDULE PAGE --- */
+.card:has(form input[type="time"]) {
+  background: var(--blush);
+  border: 1.5px dashed var(--peach);
+}
+.card:has(button[title*="study block"]) {
+  background: var(--coconut);
+  border: 1.5px solid var(--oat);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem;
+  background: #ffffff;
+  border: 1.5px solid var(--oat);
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.task-item.completed {
+  opacity: 0.5;
+  background: #fbfbfb;
+}
+
+.badge {
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.auth-link span {
+  cursor: pointer;
+  text-decoration: underline;
+}
