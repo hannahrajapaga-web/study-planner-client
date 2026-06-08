@@ -74,7 +74,7 @@ export default function Dashboard() {
   // Today's schedule
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const todayName = days[now.getDay()];
-  const todaySchedules = schedules.filter(s => s.dayOfWeek.toUpperCase() === todayName);
+  const todaySchedules = schedules.filter(s => s.dayOfWeek.toUpperCase() === todayName.toUpperCase());
 
   const unreadCount = notifications.filter(n => !n.read).length;
 
